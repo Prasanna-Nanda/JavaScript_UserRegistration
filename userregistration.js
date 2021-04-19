@@ -32,3 +32,14 @@ var firstnameregex2 = new RegExp("(^[a-z]{3,}.)|([a-z]{3,})@([a-z]{2,}.[a-z]{2})
 } else {
     console.log("Match not found.");
 }
+
+
+var getName3 = prompt('Enter the MobileNumber: ');
+
+var firstnameregex3 = new RegExp("(^[a-z]{3,}.)|([a-z]{3,})@([a-z]{2,}.[a-z]{2})|(.[a-z]{2})");
+
+ if(firstnameregex3.test(getName3)) {
+    console.log(getName3);
+} else {
+    console.log("Match not found.");
+}
