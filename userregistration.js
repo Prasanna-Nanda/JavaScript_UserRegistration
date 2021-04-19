@@ -23,3 +23,12 @@ var firstnameregex1 = new RegExp("([A-Z]{1}[a-z]{2,}\s{0,}[A-Z]{1}[a-z]{2,})");
     console.log("Match not found.");
 }
 
+var getName2 = prompt('Enter the EmailId: ');
+
+var firstnameregex2 = new RegExp("(^[a-z]{3,}.)|([a-z]{3,})@([a-z]{2,}.[a-z]{2})|(.[a-z]{2})");
+
+ if(firstnameregex2.test(getName2)) {
+    console.log(getName2);
+} else {
+    console.log("Match not found.");
+}
