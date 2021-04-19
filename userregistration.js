@@ -43,3 +43,14 @@ var firstnameregex3 = new RegExp("(^[a-z]{3,}.)|([a-z]{3,})@([a-z]{2,}.[a-z]{2})
 } else {
     console.log("Match not found.");
 }
+
+
+var getName4 = prompt('Enter the Password: ');
+
+var firstnameregex4 = new RegExp("[A-Za-z0-9]{8,}");
+
+ if(firstnameregex4.test(getName4)) {
+    console.log(getName4);
+} else {
+    console.log("Match not found.");
+}
