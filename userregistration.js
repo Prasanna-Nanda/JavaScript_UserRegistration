@@ -2,55 +2,40 @@ console.log("Welcome to User Registration")
 
 
 const prompt = require('prompt-sync')();
-var getName = prompt('Enter the firstname: ');
 
 var firstnameregex = new RegExp("(^[A-Z]{1})[a-z]{2,}");
+var lastnameregex = new RegExp("(^[A-Z]{1})[a-z]{2,}");
+var MailIdregex = new RegExp("(^[a-z]{3,}.)|([a-z]{3,})@([a-z]{2,}.[a-z]{2})|(.[a-z]{2})");
+var Mobilenumberregex = new RegExp("(^[9][1][1][1])\\$[0,1][0-9][10]");
+var Passwordregex = new RegExp('^(?=.?[A-Z])(?=.?[0-9])(?=.?[a-z])(?=.[#?!@$%^&*-]).{8,}$');
 
- if(firstnameregex.test(getName)) {
-    console.log(getName);
-} else {
-    console.log("Match not found.");
+function inputcheck(string, regex){
+    var getinput = prompt(string);
+    var result = testregex(getinput, regex)
+    while(!result){
+        var getinput = prompt(string);
+        result = testregex(getinput, regex)
+        if(result){
+        break;
+        }
+    }
+
 }
+function testregex(inputvalue, regex){
+
+    if(regex.test(inputvalue)){
+        //console.log("Valid Password");
+        return true;
+        
+    }else
+        //console.log("Invalid Password");
+        return false;
 
 
-var getName1 = prompt('Enter the lastname: ');
 
-var firstnameregex1 = new RegExp("([A-Z]{1}[a-z]{2,}\s{0,}[A-Z]{1}[a-z]{2,})");
-
- if(firstnameregex1.test(getName1)) {
-    console.log(getName1);
-} else {
-    console.log("Match not found.");
 }
-
-var getName2 = prompt('Enter the EmailId: ');
-
-var firstnameregex2 = new RegExp("(^[a-z]{3,}.)|([a-z]{3,})@([a-z]{2,}.[a-z]{2})|(.[a-z]{2})");
-
- if(firstnameregex2.test(getName2)) {
-    console.log(getName2);
-} else {
-    console.log("Match not found.");
-}
-
-
-var getName3 = prompt('Enter the MobileNumber: ');
-
-var firstnameregex3 = new RegExp("(^[a-z]{3,}.)|([a-z]{3,})@([a-z]{2,}.[a-z]{2})|(.[a-z]{2})");
-
- if(firstnameregex3.test(getName3)) {
-    console.log(getName3);
-} else {
-    console.log("Match not found.");
-}
-
-
-var getName4 = prompt('Enter the Password: ');
-
-var firstnameregex4 = new RegExp("[A-Za-z0-9]{8,}");
-
- if(firstnameregex4.test(getName4)) {
-    console.log(getName4);
-} else {
-    console.log("Match not found.");
-}
+inputcheck("Enter FristName", firstnameregex);
+inputcheck("Enter LastName", lastnameregex);
+inputcheck("Enter MailId", MailIdregex);
+inputcheck("Enter the Mobilenumber", Mobilenumberregex);
+inputcheck("Enter Password", Passwordregex);
